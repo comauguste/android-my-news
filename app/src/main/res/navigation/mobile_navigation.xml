@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.mynews.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_home_to_article_detail"
+            app:destination="@id/article_detail" />
+        <action
+            android:id="@+id/action_home_to_saved_articles"
+            app:destination="@id/saved_articles" />
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.mynews.ui.authentication.login.LoginFragment"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.mynews.ui.authentication.register.RegisterFragment"
+        android:label="@string/title_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_register_to_home"
+            app:destination="@id/home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/article_detail"
+        android:name="com.mynews.ui.articledetail.ArticleDetailFragment"
+        android:label="Article Details"
+        tools:layout="@layout/fragment_article_detail">
+        <argument
+            android:name="articleId"
+            android:defaultValue="0"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.mynews.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_profile_to_register"
+            app:destination="@id/register" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/saved_articles"
+        android:name="com.mynews.ui.savedarticles.SavedArticlesFragment"
+        android:label="Saved Articles"
+        tools:layout="@layout/fragment_saved_articles">
+    </fragment>
+</navigation>
